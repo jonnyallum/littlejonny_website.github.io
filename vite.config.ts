@@ -9,6 +9,13 @@ import { vitePluginManusRuntime } from "vite-plugin-manus-runtime";
 
 const plugins = [react(), tailwindcss(), jsxLocPlugin(), vitePluginManusRuntime()];
 
+const repoBasePath = "/littlejonnys.website/";
+const base =
+  process.env.VITE_BASE_PATH ?? (process.env.GITHUB_PAGES === "true" ? repoBasePath : "/");
+
+export default defineConfig({
+  plugins,
+  base,
 export default defineConfig({
   plugins,
   resolve: {
